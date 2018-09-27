@@ -2,3 +2,4 @@ django >=1.9, <2
 dj-database-url
 psycopg2==2.7.3
 django_heroku
+gunicorn==19.7.1
