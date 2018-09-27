@@ -1,4 +1,4 @@
 django >=1.9, <2
 dj-database-url
 psycopg2==2.7.3
-django_heroku=='*'
+django_heroku
