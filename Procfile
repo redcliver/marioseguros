@@ -1,2 +1,1 @@
-
-web: gunicorn marioseguro.wsgi --log-file - 
+web: gunicorn marioseguro.wsgi --log-file -
