@@ -8,6 +8,7 @@ dj-database-url = "*"
 "psycopg2" = "==2.7.3"
 django-heroku = "*"
 Django = "<2,>=1.9"
+gunicorn = "==19.7.1"
 
 [requires]
 python_version = "3.5"
