@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .models import cliente
 import datetime
+from django.http import HttpResponse
+from .utils import render_to_pdf
+from django.views.generic import View
+from django.template.loader import get_template
 
 # Create your views here.
 def home(request):
@@ -172,3 +176,41 @@ def visualizar(request):
         return render(request, 'home/home.html', {'title':'Home', 'clientes':clientes})
     else:
         return render(request, 'home/erro.html', {'title':'Erro'})
+
+class GeneratePdf(View):
+    def get(self, request, *args, **kwargs):
+        template = get_template('pdf.html')
+        cliente_id = request.GET.get('cliente_id')
+        cli_obj = cliente.objects.filter(id=cliente_id).get()
+        hoje = datetime.now().strftime('%d/%m/%Y')
+
+        context = {
+                "cli_nome": cli_obj.nome,
+                "cli_nasc": cli_obj.data_nasc.strftime('%d/%m/%Y'),
+                "cli_hab": cli_obj.venc_habilitacao.strftime('%d/%m/%Y'),
+                "cli_rg": cli_obj.rg,
+                "cli_cpf": cli_obj.cpf,
+                "cli_end": cli_obj.endereco,
+                "cli_num": cli_obj.numero,
+                "cli_bairro": cli_obj.bairro,
+                "cli_cep": cli_obj.cep,
+                "cli_cidade": cli_obj.cidade,
+                "cli_estado": cli_obj.estado,
+                "cli_tel": cli_obj.telefone,
+                "cli_cel": cli_obj.celular,
+                "cli_mail": cli_obj.email,
+                "hoje": hoje,
+            }
+        html = template.render(context)
+        pdf = render_to_pdf('pdf.html', context)
+        if pdf:
+            response = HttpResponse(pdf, content_type='application/pdf')
+            filename = "%s.pdf" %(cli_obj.nome)
+            content = "inline-block; filename='%s'" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename='%s'" %(filename)
+            response['Content-Disposition'] = content
+            return response
+        return HttpResponse("Not found")
+        return HttpResponse(pdf, content_type='application/pdf')
