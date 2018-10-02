@@ -308,7 +308,7 @@ iframe {
         -o-transition: all 0.6s;
         -moz-transition: all 0.6s;
         transition: all 0.6s;
-        background: #57a695;
+        background: #177777;
     }
 
 
@@ -374,7 +374,7 @@ input.input100 {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-    color: #57a695;
+    color: #177777;
 }
 
 /*------------------------------------------------------------------
@@ -400,7 +400,7 @@ input.input100 {
     padding: 0 20px;
     min-width: 160px;
     height: 50px;
-    background-color: #57a695;
+    background-color: #996633;
     border-radius: 25px;
     font-family: Poppins-Regular;
     font-size: 16px;
@@ -413,7 +413,7 @@ input.input100 {
 }
 
     .login100-form-btn:hover {
-        background-color: #105143;
+        background-color: #663300;
     }
 
 

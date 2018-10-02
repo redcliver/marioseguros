@@ -5,8 +5,9 @@
     "\\home\\static",
     "\\home\\static\\css",
     "\\home\\templates",
-    "\\home\\templates\\home"
+    "\\home\\templates\\home",
+    "\\marioseguro"
   ],
-  "SelectedNode": "\\home\\static\\css\\util.css",
+  "SelectedNode": "\\home\\templates\\home\\login.html",
   "PreviewInSolutionExplorer": false
 }

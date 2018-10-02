@@ -1,9 +1,9 @@
 certifi==2018.4.16
-Django==1.11
+Django==2.1.1
 django-heroku==0.3.1
 dj-database-url==0.5.0
 gunicorn==19.9.0
-pip==10.0.1
+pip==18.0
 pipenv==2018.7.1
 psycopg2==2.7.5
 pytz==2018.5
