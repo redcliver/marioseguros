@@ -109,6 +109,7 @@ def salvar(request):
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') != '':
                 cli_obj.nome = nome
                 cli_obj.venc_habilitacao = venc_hab
+                cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
@@ -125,6 +126,7 @@ def salvar(request):
             elif request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
                 cli_obj.data_nasc = data_nasc
+                cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
                 cli_obj.rg = rg
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
@@ -140,6 +142,8 @@ def salvar(request):
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
+                cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
+                cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
