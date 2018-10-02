@@ -179,7 +179,7 @@ def visualizar(request):
 
 class GeneratePdf(View):
     def get(self, request, *args, **kwargs):
-        template = get_template('/home/pdf.html')
+        template = get_template('pdf.html')
         cliente_id = request.GET.get('cliente_id')
         cli_obj = cliente.objects.filter(id=cliente_id).get()
         hoje = datetime.now().strftime('%d/%m/%Y')
@@ -202,7 +202,7 @@ class GeneratePdf(View):
                 "hoje": hoje,
             }
         html = template.render(context)
-        pdf = render_to_pdf('/home/pdf.html', context)
+        pdf = render_to_pdf('pdf.html', context)
         if pdf:
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "%s.pdf" %(cli_obj.nome)
