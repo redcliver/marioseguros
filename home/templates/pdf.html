@@ -21,11 +21,18 @@
         div.pe {
             position: fixed;
             height: 50px;
-            background-color: red;
             bottom: 0px;
             left: 0px;
             right: 0px;
             margin-bottom: 0px;
+            text-align:center;
+        }
+        .formulario {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .dados {
+            font-size: 20px;
         }
     </style>
 </head>
@@ -33,9 +40,9 @@
     <div class='cabeca'>
         <p>Dados do Cliente</p>
     </div>
-    <div class='details'>
-        <label>Nome:<br />{{cli_nome}}</label>
-        
+    <div>
+        <p class="formulario">Nome:</p><br />
+        <p class="dados">{{cli_nome}}</p>
     </div>
     
     <div class="pe">
