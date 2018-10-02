@@ -6,15 +6,15 @@ from datetime import datetime
 from django.conf.urls import url
 import django.contrib.auth.views
 
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.views import login
 
 import app.forms
 import app.views
 
 # Uncomment the next lines to enable the admin:
 from django.conf.urls import include
-from django.contrib import admin
-admin.autodiscover()
+# from django.contrib import admin
+# admin.autodiscover()
 
 urlpatterns = [
     # Examples:
