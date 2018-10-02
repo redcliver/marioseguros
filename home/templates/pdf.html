@@ -7,8 +7,10 @@
     <link rel="icon" type="image/png" href="{% static '/img/favicon.ico' %}" />
     <!-- Custom styles for this template -->
     <style type="text/css">
-        div.centralizar {
+        div.cabeca {
             text-align: center;
+            font-size: 30px;
+            font-weight: bold;
         }
         div.direita {
             text-align: right;
@@ -16,8 +18,8 @@
     </style>
 </head>
 <body>
-    <div class='centralizar'>
-        <p class="font-weight-bold text-center">Dados do Cliente</p>
+    <div class='cabeca'>
+        <p>Dados do Cliente</p>
     </div>
     <div class='details'>
         <label>Nome:<br />{{cli_nome}}</label>
