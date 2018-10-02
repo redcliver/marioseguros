@@ -202,7 +202,7 @@ class GeneratePdf(View):
                 "hoje": hoje,
             }
         html = template.render(context)
-        pdf = render_to_pdf('pdf.html', context)
+        pdf = render_to_pdf('/home/pdf.html', context)
         if pdf:
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "%s.pdf" %(cli_obj.nome)
