@@ -2,12 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\home",
-    "\\home\\static",
     "\\home\\static\\css",
     "\\home\\templates",
     "\\home\\templates\\home",
     "\\marioseguro"
   ],
-  "SelectedNode": "\\home\\templates\\home\\login.html",
+  "SelectedNode": "\\home\\views.py",
   "PreviewInSolutionExplorer": false
 }
