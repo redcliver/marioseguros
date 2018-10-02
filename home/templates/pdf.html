@@ -15,6 +15,13 @@
         div.direita {
             text-align: right;
         }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: left;
+        }
     </style>
 </head>
 <body>
@@ -23,15 +30,13 @@
     </div>
     <div class='details'>
         <label>Nome:<br />{{cli_nome}}</label>
-        <hr class='hrItem' />
+        
     </div>
     
-    <footer>
-        <div class="direita">
-            <h2 >Data: {{hoje}}.</h2>
-        </div>
-    </footer>
-
+    <div class="footer">
+        <hr class='hrItem' />
+        <h2>Data: {{hoje}}.</h2>
+    </div>
 </body>
 
 </html>
