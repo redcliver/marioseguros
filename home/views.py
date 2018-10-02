@@ -182,7 +182,7 @@ class GeneratePdf(View):
         template = get_template('pdf.html')
         cliente_id = request.GET.get('cliente_id')
         cli_obj = cliente.objects.filter(id=cliente_id).get()
-        hoje = datetime.now().strftime('%d/%m/%Y')
+        hoje = datetime.datetime.today().strftime('%d/%m/%Y')
 
         context = {
                 "cli_nome": cli_obj.nome,
