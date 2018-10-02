@@ -105,6 +105,7 @@ def salvar(request):
                 cli_obj.celular = cel
                 cli_obj.email = mail
                 cli_obj.save();
+                return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') != '':
                 cli_obj.nome = nome
                 cli_obj.venc_hab = venc_hab
@@ -120,6 +121,7 @@ def salvar(request):
                 cli_obj.celular = cel
                 cli_obj.email = mail
                 cli_obj.save();
+                return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
                 cli_obj.data_nasc = data_nasc
@@ -135,6 +137,7 @@ def salvar(request):
                 cli_obj.celular = cel
                 cli_obj.email = mail
                 cli_obj.save();
+                return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
                 cli_obj.rg = rg
@@ -149,6 +152,7 @@ def salvar(request):
                 cli_obj.celular = cel
                 cli_obj.email = mail
                 cli_obj.save();
+                return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
         return render(request, 'home/editar_cliente1.html', {'title':'Editar Cliente'})
     else:
