@@ -16,6 +16,7 @@ virtualenv = "==16.0.0"
 virtualenv-clone = "==0.3.0"
 whitenoise = "==3.3.1"
 "psycopg2-binary" = "*"
+"xhtml2pdf" = "*"
 
 [requires]
 python_version = "3.5"
