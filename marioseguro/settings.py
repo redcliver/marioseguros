@@ -30,7 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'marioseguro.herokuapp.com',
-    'localhost',
+    'localhost'
 ]
 
 
