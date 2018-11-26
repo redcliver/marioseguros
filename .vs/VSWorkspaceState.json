@@ -1,11 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\home",
     "\\home\\templates",
-    "\\home\\templates\\home",
-    "\\marioseguro"
+    "\\home\\templates\\home"
   ],
-  "SelectedNode": "\\requirements.txt",
+  "SelectedNode": "\\home",
   "PreviewInSolutionExplorer": false
 }
