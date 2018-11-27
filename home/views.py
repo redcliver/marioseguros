@@ -25,6 +25,8 @@ def novo(request):
             data_nasc = request.POST.get('data_nasc')
             venc_hab = request.POST.get('venc_hab')
             rg = request.POST.get('rg')
+            rg_data = request.POST.get('rg_data')
+            rg_uf = request.POST.get('rg_uf')
             cpf = request.POST.get('cpf')
             end = request.POST.get('end')
             num = request.POST.get('num')
@@ -35,17 +37,23 @@ def novo(request):
             tel = request.POST.get('tel')
             cel = request.POST.get('cel')
             mail = request.POST.get('mail')
+            tel1 = request.POST.get('tel1')
+            cel1 = request.POST.get('cel1')
+            mail1 = request.POST.get('mail1')
+            tel2 = request.POST.get('tel2')
+            cel2 = request.POST.get('cel2')
+            mail2 = request.POST.get('mail2')
             if request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') != '':
-                novo_cliente = cliente(nome=nome, data_nasc=data_nasc, venc_habilitacao=venc_hab, rg=rg, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail)
+                novo_cliente = cliente(nome=nome, data_nasc=data_nasc, venc_habilitacao=venc_hab, rg=rg, rg_data=rg_data, rg_uf=rg_uf, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail, telefone1=tel1, celular1=cel1, email1=mail1, telefone2=tel2, celular2=cel2, email2=mail2)
                 novo_cliente.save()
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') != '':
-                novo_cliente = cliente(nome=nome, venc_habilitacao=venc_hab, rg=rg, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail)
+                novo_cliente = cliente(nome=nome, venc_habilitacao=venc_hab, rg=rg, rg_data=rg_data, rg_uf=rg_uf, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail, telefone1=tel1, celular1=cel1, email1=mail1, telefone2=tel2, celular2=cel2, email2=mail2)
                 novo_cliente.save()
             elif request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') == '':
-                novo_cliente = cliente(nome=nome, data_nasc=data_nasc, rg=rg, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail)
+                novo_cliente = cliente(nome=nome, data_nasc=data_nasc, rg=rg, cpf=cpf, rg_data=rg_data, rg_uf=rg_uf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail, telefone1=tel1, celular1=cel1, email1=mail1, telefone2=tel2, celular2=cel2, email2=mail2)
                 novo_cliente.save()
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') == '':
-                novo_cliente = cliente(nome=nome, rg=rg, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail)
+                novo_cliente = cliente(nome=nome, rg=rg, rg_data=rg_data, rg_uf=rg_uf, cpf=cpf, endereco=end, numero=num, bairro=bairro, cep=cep, cidade=cidade, estado=estado, telefone=tel, celular=cel, email=mail, telefone1=tel1, celular1=cel1, email1=mail1, telefone2=tel2, celular2=cel2, email2=mail2)
                 novo_cliente.save()
             return render(request, 'home/novo_cliente.html', {'title':'Novo Cliente'})
         return render(request, 'home/novo_cliente.html', {'title':'Novo Cliente'})
@@ -82,6 +90,8 @@ def salvar(request):
             data_nasc = request.POST.get('data_nasc')
             venc_hab = request.POST.get('venc_hab')
             rg = request.POST.get('rg')
+            rg_data = request.POST.get('rg_data')
+            rg_uf = request.POST.get('rg_uf')
             cpf = request.POST.get('cpf')
             end = request.POST.get('end')
             num = request.POST.get('num')
@@ -92,12 +102,20 @@ def salvar(request):
             tel = request.POST.get('tel')
             cel = request.POST.get('cel')
             mail = request.POST.get('mail')
+            tel1 = request.POST.get('tel1')
+            cel1 = request.POST.get('cel1')
+            mail1 = request.POST.get('mail1')
+            tel2 = request.POST.get('tel2')
+            cel2 = request.POST.get('cel2')
+            mail2 = request.POST.get('mail2')
             
             if request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') != '':
                 cli_obj.nome = nome
                 cli_obj.data_nasc = data_nasc
                 cli_obj.venc_habilitacao = venc_hab
                 cli_obj.rg = rg
+                cli_obj.rg_data = rg_data
+                cli_obj.rg_uf = rg_uf
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
                 cli_obj.numero = num
@@ -108,6 +126,12 @@ def salvar(request):
                 cli_obj.telefone = tel
                 cli_obj.celular = cel
                 cli_obj.email = mail
+                cli_obj.telefone1 = tel1
+                cli_obj.celular1 = cel1
+                cli_obj.email1 = mail1
+                cli_obj.telefone2 = tel2
+                cli_obj.celular2 = cel2
+                cli_obj.email2 = mail2
                 cli_obj.save();
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') != '':
@@ -115,6 +139,8 @@ def salvar(request):
                 cli_obj.venc_habilitacao = venc_hab
                 cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
+                cli_obj.rg_data = rg_data
+                cli_obj.rg_uf = rg_uf
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
                 cli_obj.numero = num
@@ -125,6 +151,12 @@ def salvar(request):
                 cli_obj.telefone = tel
                 cli_obj.celular = cel
                 cli_obj.email = mail
+                cli_obj.telefone1 = tel1
+                cli_obj.celular1 = cel1
+                cli_obj.email1 = mail1
+                cli_obj.telefone2 = tel2
+                cli_obj.celular2 = cel2
+                cli_obj.email2 = mail2
                 cli_obj.save();
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') == '':
@@ -132,6 +164,8 @@ def salvar(request):
                 cli_obj.data_nasc = data_nasc
                 cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
                 cli_obj.rg = rg
+                cli_obj.rg_data = rg_data
+                cli_obj.rg_uf = rg_uf
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
                 cli_obj.numero = num
@@ -142,6 +176,12 @@ def salvar(request):
                 cli_obj.telefone = tel
                 cli_obj.celular = cel
                 cli_obj.email = mail
+                cli_obj.telefone1 = tel1
+                cli_obj.celular1 = cel1
+                cli_obj.email1 = mail1
+                cli_obj.telefone2 = tel2
+                cli_obj.celular2 = cel2
+                cli_obj.email2 = mail2
                 cli_obj.save();
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') == '':
@@ -149,6 +189,8 @@ def salvar(request):
                 cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
                 cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
+                cli_obj.rg_data = rg_data
+                cli_obj.rg_uf = rg_uf
                 cli_obj.cpf = cpf
                 cli_obj.endereco = end
                 cli_obj.numero = num
@@ -159,6 +201,12 @@ def salvar(request):
                 cli_obj.telefone = tel
                 cli_obj.celular = cel
                 cli_obj.email = mail
+                cli_obj.telefone1 = tel1
+                cli_obj.celular1 = cel1
+                cli_obj.email1 = mail1
+                cli_obj.telefone2 = tel2
+                cli_obj.celular2 = cel2
+                cli_obj.email2 = mail2
                 cli_obj.save();
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
