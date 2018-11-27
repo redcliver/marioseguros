@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import cliente
 import datetime
 from django.http import HttpResponse
-from .utils import render_to_pdf
+#from .utils import render_to_pdf
 from django.views.generic import View
 from django.template.loader import get_template
 
