@@ -89,6 +89,7 @@ def salvar(request):
             cli_obj = cliente.objects.filter(id=cli_id).get()
             nome = request.POST.get('name')
             data_nasc = request.POST.get('data_nasc')
+            insc = request.POST.get('insc')
             venc_hab = request.POST.get('venc_hab')
             rg = request.POST.get('rg')
             rg_data = request.POST.get('rg_data')
@@ -113,6 +114,7 @@ def salvar(request):
             if request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') != '':
                 cli_obj.nome = nome
                 cli_obj.data_nasc = data_nasc
+                cli_obj.inscricao = insc
                 cli_obj.venc_habilitacao = venc_hab
                 cli_obj.rg = rg
                 cli_obj.rg_data = rg_data
@@ -137,6 +139,7 @@ def salvar(request):
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') != '':
                 cli_obj.nome = nome
+                cli_obj.inscricao = insc
                 cli_obj.venc_habilitacao = venc_hab
                 cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
@@ -163,6 +166,7 @@ def salvar(request):
             elif request.POST.get('data_nasc') != '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
                 cli_obj.data_nasc = data_nasc
+                cli_obj.inscricao = insc
                 cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
                 cli_obj.rg = rg
                 cli_obj.rg_data = rg_data
@@ -187,6 +191,7 @@ def salvar(request):
                 return render(request, 'home/editar_cliente.html', {'title':'Editar Cliente', 'cli_obj':cli_obj})
             elif request.POST.get('data_nasc') == '' and request.POST.get('venc_hab') == '':
                 cli_obj.nome = nome
+                cli_obj.inscricao = insc
                 cli_obj.venc_habilitacao = cli_obj.venc_habilitacao
                 cli_obj.data_nasc = cli_obj.data_nasc
                 cli_obj.rg = rg
