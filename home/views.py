@@ -268,3 +268,15 @@ class GeneratePdf(View):
             return response
         return HttpResponse("Not found")
         return HttpResponse(pdf, content_type='application/pdf')
+
+def excluir(request):
+    if request.user.is_authenticated():
+        clientes = cliente.objects.all().order_by('nome')
+        if request.method == 'POST' and request.POST.get('cliente_id') != None:
+            cli_id = request.POST.get('cliente_id')
+            cli_obj = cliente.objects.filter(id=cli_id).get()
+            cli_obj.delete()
+            return render(request, 'home/home.html', {'title':'Home', 'clientes':clientes})
+        return render(request, 'home/home.html', {'title':'Home', 'clientes':clientes})
+    else:
+        return render(request, 'home/erro.html', {'title':'Erro'})

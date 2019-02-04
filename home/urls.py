@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^editar', views.editar_cliente),
     url(r'^salvar', views.salvar),
     url(r'^visualizar', views.visualizar),
+    url(r'^excluir', views.excluir),
     ]

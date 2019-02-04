@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\home",
+    "\\home\\templates",
+    "\\home\\templates\\home"
   ],
-  "SelectedNode": "\\.gitignore",
+  "SelectedNode": "\\home\\templates\\home\\novo_cliente.html",
   "PreviewInSolutionExplorer": false
 }
